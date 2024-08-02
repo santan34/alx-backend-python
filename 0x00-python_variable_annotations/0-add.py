@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""addition of ints"""
+"""Typeadd"""
+
+
 def add(a: float, b: float) -> float:
-    """
-    adds two numbers together
-    """
+    """returns the sum as float"""
     return a + b
