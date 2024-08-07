@@ -3,16 +3,16 @@
 
 import asyncio
 import random
-from typing import List
+from typing import List, Set, Any
 wait_random = __import__("0-basic_async_syntax").wait_random
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    spawn_list: List[float]= []
-    return_list: List[float]= []
+async def wait_n(n:int, max_delay:int) -> List[float]:
+    """asynchronous handling """
+    task_list: Set[Any] = set()
     for i in range(n):
         task = asyncio.create_task(wait_random(max_delay))
-        spawn_list.append(task)
 
-    delays = await asyncio.gather(*spawn_list)
+        task_list.add(task)
     
-    return sorted(delays)gi
+    list: List[float] = await asyncio.gather(*task_list)
+    return list
